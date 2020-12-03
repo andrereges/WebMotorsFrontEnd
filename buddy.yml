@@ -2,29 +2,11 @@
   trigger_mode: "ON_EVERY_PUSH"
   ref_name: "develop"
   actions:
-  - action: "Build with Sonarqube"
+  - action: "Build, Test"
     type: "BUILD"
-    working_directory: "/buddy/webmotorsfront"
-    docker_image_name: "ringcentral/web-tools"
-    docker_image_tag: "alpine"
     execute_commands:
     - "yarn install"
-    - "yarn test --watchAll=false --coverage -Dsonar.login=$SONAR_TOKEN \\"
-    - " -Dsonar.projectKey=$SONAR_PROJECT_KEY  -Dsonar.organization=$SONAR_ORGANIZATION"
-    cached_dirs:
-    - "/buddy/sonar/.scannerwork"
-    - "/root/.sonar/cache"
-    volume_mappings:
-    - "/buddy/webmotorsfront:/buddy/webmotorsfront"
-    trigger_condition: "ALWAYS"
-    shell: "BASH"
-    variables:
-    - key: "SONAR_ORGANIZATION"
-      value: "andrereges"
-    - key: "SONAR_PROJECT_KEY"
-      value: "andrereges_webmotorsfront"
-    - key: "SONAR_TOKEN"
-      value: "9c9b19e51f3ebaf8ca93b39a2c370314710516f3"
+    - "yarn test --watchAll=false"
   - action: "Deploy to HEROKU"
     type: "HEROKU"
     application_name: "webmotorsfront"
