@@ -4,9 +4,15 @@
   actions:
   - action: "Build, Test"
     type: "BUILD"
+    working_directory: "/usr/app"
+    docker_image_name: "node"
+    docker_image_tag: "12-alpine"
     execute_commands:
     - "yarn install"
+    - "yarn build"
     - "yarn test --watchAll=false"
+    setup_commands:
+    - "yarn install"
   - action: "Deploy to HEROKU"
     type: "HEROKU"
     application_name: "webmotorsfront"
