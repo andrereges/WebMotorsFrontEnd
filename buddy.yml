@@ -16,6 +16,7 @@
   - action: "Deploy to HEROKU"
     type: "HEROKU"
     application_name: "webmotorsfrontend"
+    trigger_condition: "ALWAYS"
     integration_hash: "5fc8053801dda31446149020"
     use_custom_gitignore: false
     isolated: true
