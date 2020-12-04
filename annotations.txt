@@ -23,3 +23,6 @@ https://sonarcloud.io/organizations/andrereges/projects
       value: "andrereges_webmotorsfront"
     - key: "SONAR_TOKEN"
       value: "9c9b19e51f3ebaf8ca93b39a2c370314710516f3"
+
+heroku login
+heroku stack:set container
