@@ -1,6 +1,6 @@
 - pipeline: "Build, Test and Deploy"
   trigger_mode: "ON_EVERY_PUSH"
-  ref_name: "develop"
+  ref_name: "master"
   actions:
   - action: "Build, Test"
     type: "BUILD"
