@@ -2,8 +2,4 @@ build:
   docker:
     web: Dockerfile
 run:
-  web: yarn && yarn start
-  worker:
-    command:
-      - yarn && yarn start
-    image: node:12-alpine
+  web: yarn install && yarn start
